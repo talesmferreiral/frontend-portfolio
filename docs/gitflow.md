@@ -43,12 +43,12 @@ git tag -a v2.0.0 -m "release: accessible SPA ready for production"
 ## Publish to your GitHub
 
 ```powershell
-gh repo create portfolio-frontend-web --public --source=. --remote=origin
+gh repo create frontend-portfolio --public --source=. --remote=origin
 git push -u origin main
 git push -u origin develop
 git push --tags
 # without gh: create the empty repo at github.com/talesmferreiral first, then:
-# git remote add origin https://github.com/talesmferreiral/portfolio-frontend-web.git
+# git remote add origin https://github.com/talesmferreiral/frontend-portfolio.git
 ```
 
 ## Suggested CI/CD (GitHub Pages)

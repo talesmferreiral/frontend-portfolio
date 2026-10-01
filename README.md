@@ -9,7 +9,7 @@ This repository consolidates the 4 hands-on course assignments, evolving from st
 ## Structure
 
 ```
-portfolio-frontend-web/
+frontend-portfolio/
 ├── index.html                  # Portfolio landing page (open in browser)
 ├── assets/style.css            # Portfolio styles
 ├── activities/
@@ -36,7 +36,7 @@ portfolio-frontend-web/
 ## Run locally
 
 ```powershell
-cd "C:\Tales\GitHub\portfolio-frontend-web\activities\practical-03-spa\ngo-spa-local-v5.0"
+cd "C:\Tales\GitHub\frontend-portfolio\activities\practical-03-spa\ngo-spa-local-v5.0"
 python -m http.server 8000
 # open http://localhost:8000/html/index.html
 ```
@@ -70,7 +70,7 @@ Este repositório consolida as 4 Experiências Práticas da disciplina, evoluind
 ## Estrutura
 
 ```
-portfolio-frontend-web/
+frontend-portfolio/
 ├── index.html                  # Landing page do portfólio (abra no navegador)
 ├── assets/style.css            # Estilos do portfólio
 ├── activities/
@@ -97,7 +97,7 @@ portfolio-frontend-web/
 ## Como rodar
 
 ```powershell
-cd "C:\Tales\GitHub\portfolio-frontend-web\activities\practical-03-spa\ngo-spa-local-v5.0"
+cd "C:\Tales\GitHub\frontend-portfolio\activities\practical-03-spa\ngo-spa-local-v5.0"
 python -m http.server 8000
 # abrir http://localhost:8000/html/index.html
 ```
