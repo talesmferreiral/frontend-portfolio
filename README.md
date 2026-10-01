@@ -35,8 +35,8 @@ frontend-portfolio/
 
 ## Run locally
 
-```powershell
-cd "C:\Tales\GitHub\frontend-portfolio\activities\practical-03-spa\ngo-spa-local-v5.0"
+```bash
+cd activities/practical-03-spa/ngo-spa-local-v5.0
 python -m http.server 8000
 # open http://localhost:8000/html/index.html
 ```
@@ -96,8 +96,8 @@ frontend-portfolio/
 
 ## Como rodar
 
-```powershell
-cd "C:\Tales\GitHub\frontend-portfolio\activities\practical-03-spa\ngo-spa-local-v5.0"
+```bash
+cd activities/practical-03-spa/ngo-spa-local-v5.0
 python -m http.server 8000
 # abrir http://localhost:8000/html/index.html
 ```
