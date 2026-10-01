@@ -1,0 +1,15 @@
+# OS / Editor
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.log
+
+# Python server / caches
+__pycache__/
+*.pyc
+
+# Node (caso adicione Vite/build no futuro)
+node_modules/
+dist/
+.DS_Store

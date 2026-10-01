@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Front-End Portfolio Unifran - Tales M. Ferreira. Hands That Help NGO SPA.">
+<title>Front-End Portfolio — Tales M. Ferreira</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header>
+<h1>Tales M. Ferreira — Front-End Web</h1>
+<p>Unifran · Computer Science, 2nd Semester · Flagship project: “Hands That Help” NGO — from static HTML to a modular SPA, accessible (WCAG 2.1 AA) and production-ready.</p>
+<div class="badges"><span>Vanilla JS</span><span>SPA Hash Router</span><span>localStorage</span><span>WCAG 2.1 AA</span><span>GitFlow</span><span>GitHub Pages</span></div>
+<p><a class="btn" href="https://github.com/talesmferreiral" target="_blank" rel="noopener">github.com/talesmferreiral</a></p>
+</header>
+<main>
+<section class="card"><h2>1 · Practical 01 — Foundations</h2><p>Semantic HTML structure, base CSS and the first <code>ngo-project</code>. Landmark and layout fundamentals.</p><p><code>activities/practical-01-basics/</code></p></section>
+<section class="card"><h2>2 · Practical 02 — Layout &amp; responsiveness</h2><p>Evolution to <code>v2.0 / v3.0</code>: grid, breakpoints, components (cards, badges, CSS-only modals).</p><p><code>activities/practical-02-layout/</code></p></section>
+<section class="card"><h2>3 · Practical 03 — SPA + data (highlight)</h2><ul><li>Hash router <code>#/ · #/projects · #/signup</code> with no reload</li><li>Real-time + submit validation (CPF, CEP, phone, email) with <code>.field-valid/.field-invalid</code></li><li><code>localStorage</code> persistence (<code>stringify/parse</code>) + “Welcome back” banner</li><li>Modular: <code>data · templates · router · interactions · storage · main</code> (v5.0)</li></ul><p><code>activities/practical-03-spa/ngo-spa-local-v5.0/html/index.html</code> — run with <code>python -m http.server 8000</code></p><p class="ok">Recommended demo version: v5.0</p></section>
+<section class="card"><h2>4 · Practical 04 — Professionalization</h2><ul><li>GitFlow (<code>main/develop/feature/hotfix</code>), Conventional Commits, SemVer <code>v1.0.0–v2.0.0</code></li><li>WCAG 2.1 AA: ARIA, <code>:focus-visible</code>, contrast ≥4.5:1 (Lighthouse/axe)</li><li>Vite/Terser build (~65% smaller), WebP + <code>srcset</code> + <code>lazy</code>, GitHub Pages deploy + CI/CD</li></ul><p>Docs: <code>docs/gitflow.md</code> · <code>docs/accessibility.md</code> · <code>docs/learning.md</code></p></section>
+<section class="card"><h2>How to evaluate</h2><div class="grid"><div><h3>Run the SPA</h3><p><code>cd activities/.../ngo-spa-local-v5.0</code><br><code>python -m http.server 8000</code><br>Open <code>http://localhost:8000/html/index.html</code></p></div><div><h3>Commits</h3><p>Local repo ready at <code>C:\Tales\GitHub\portfolio-frontend-web</code>. See <code>docs/gitflow.md</code> for <code>init</code>, <code>push</code> and tags.</p></div></div></section>
+<hr>
+<section class="card" lang="pt-BR"><h2>Versão em português</h2><p>Unifran · Ciência da Computação 2º Semestre · Projeto âncora: ONG “Mãos que Ajudam” — de HTML estático a SPA modular, acessível (WCAG 2.1 AA) e pronta para produção.</p><p>1 · Prática I — Base: HTML semântico, CSS base e primeiro <code>ngo-project</code>. 2 · Prática II — Layout e responsividade (grid, breakpoints, cards, badges, modais). 3 · Prática III — SPA + dados (router hash, validação, <code>localStorage</code>, arquitetura modular v5.0). 4 · Prática IV — Profissionalização (GitFlow, WCAG AA, performance, deploy).</p></section>
+</main>
+<footer>Built by Tales M. Ferreira · Unifran 2026 · Educational MIT</footer>
+</body>
+</html>

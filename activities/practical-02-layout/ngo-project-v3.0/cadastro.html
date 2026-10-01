@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mãos que Ajudam - Cadastro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header>
+        <img src="assets/img/logo.png" alt="Logo da ONG Mãos que Ajudam" width="180">
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger" aria-label="Abrir menu de navegação">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li class="has-dropdown">
+                    <a href="projetos.html">Projetos</a>
+                    <ul class="dropdown">
+                        <li><a href="projetos.html#campanhas">Campanhas</a></li>
+                        <li><a href="projetos.html#como-doar">Como Doar</a></li>
+                        <li><a href="projetos.html#como-voluntariar">Seja Voluntário</a></li>
+                    </ul>
+                </li>
+                <li><a href="cadastro.html">Cadastre-se</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Cadastro de Doadores e Voluntários</h1>
+        <p>Preencha o formulário abaixo para fazer parte da nossa rede de apoio.</p>
+
+        <div class="alert alert-info" role="status">
+            <strong>Atenção:</strong> todos os campos marcados são obrigatórios.
+            Seus dados são usados apenas para contato da ONG.
+        </div>
+
+        <div class="alert alert-success" role="status">
+            <strong>Cadastro enviado com sucesso!</strong> Em breve nossa equipe entrará em contato.
+        </div>
+
+        <div class="alert alert-error" role="alert">
+            <strong>Erro no envio:</strong> verifique os campos destacados em vermelho e tente novamente.
+        </div>
+
+        <form action="#" method="post">
+
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome" required
+                       placeholder="Digite seu nome completo">
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required
+                       placeholder="seuemail@exemplo.com">
+
+                <label for="nascimento">Data de nascimento</label>
+                <input type="date" id="nascimento" name="nascimento" required>
+
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" name="cpf" required
+                       pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                       maxlength="14"
+                       placeholder="000.000.000-00"
+                       title="Digite o CPF no formato 000.000.000-00">
+            </fieldset>
+
+            <fieldset>
+                <legend>Endereço</legend>
+
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" required
+                       pattern="\d{5}-\d{3}"
+                       maxlength="9"
+                       placeholder="00000-000"
+                       title="Digite o CEP no formato 00000-000">
+
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade" required
+                       placeholder="Digite sua cidade">
+
+                <label for="estado">Estado</label>
+                <select id="estado" name="estado" required>
+                    <option value="">Selecione</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="PR">Paraná</option>
+                    <option value="outros">Outro</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Contato e Perfil</legend>
+
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" required
+                       pattern="\(\d{2}\)\s\d{4,5}-\d{4}"
+                       placeholder="(00) 00000-0000"
+                       title="Digite o telefone no formato (00) 00000-0000">
+
+                <label id="perfil-label">Deseja ser:</label>
+                <div class="radio-group" role="radiogroup" aria-labelledby="perfil-label">
+                    <span class="radio-option">
+                        <input type="radio" id="doador" name="perfil" value="doador" required>
+                        <label for="doador">Doador</label>
+                    </span>
+                    <span class="radio-option">
+                        <input type="radio" id="voluntario" name="perfil" value="voluntario">
+                        <label for="voluntario">Voluntário</label>
+                    </span>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="submit">Enviar cadastro</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <address>
+            <p>E-mail: contato@maosqueajudam.org.br</p>
+            <p>Telefone: (16) 3711-0000</p>
+            <p>Franca, SP - Brasil</p>
+        </address>
+    </footer>
+
+</body>
+</html>

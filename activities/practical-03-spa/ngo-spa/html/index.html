@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mãos que Ajudam</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <header>
+        <img src="../images/logo.png" alt="Logo da ONG Mãos que Ajudam" width="180">
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger" aria-label="Abrir menu de navegação">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav>
+            <ul>
+                <li><a href="#/" data-route="/">Início</a></li>
+                <li><a href="#/projetos" data-route="/projetos">Projetos</a></li>
+                <li><a href="#/cadastro" data-route="/cadastro">Cadastre-se</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contêiner alvo: o roteador limpa e injeta o HTML da rota atual aqui -->
+    <main id="app">
+        <p>Carregando aplicação...</p>
+    </main>
+
+    <footer>
+        <address>
+            <p>E-mail: contato@maosqueajudam.org.br</p>
+            <p>Telefone: (16) 3711-0000</p>
+            <p>Franca, SP - Brasil</p>
+        </address>
+    </footer>
+
+    <script type="module" src="../js/main.js"></script>
+</body>
+</html>

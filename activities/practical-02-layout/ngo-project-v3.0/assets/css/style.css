@@ -1,0 +1,614 @@
+/* ===========================================
+   DESIGN SYSTEM - Variáveis customizadas (CSS Custom Properties)
+   =========================================== */
+:root {
+  /* Cores primárias */
+  --color-primary: #0d3b66;
+  --color-primary-dark: #082747;
+  --color-primary-light: #4a90d9;
+
+  /* Cores secundárias (ação / destaque) */
+  --color-secondary: #f4a300;
+  --color-secondary-dark: #d98e00;
+
+  /* Cor de feedback */
+  --color-success: #2e7d32;
+
+  /* Tons neutros */
+  --color-neutral-900: #1a1a1a;
+  --color-neutral-600: #555555;
+  --color-neutral-300: #cccccc;
+  --color-neutral-100: #f7f9fb;
+  --color-white: #ffffff;
+
+  /* Escala tipográfica (5 patamares) */
+  --font-family-base: Arial, Helvetica, sans-serif;
+  --font-size-sm: 0.875rem;   /* 14px - textos auxiliares */
+  --font-size-base: 1rem;     /* 16px - corpo de texto */
+  --font-size-md: 1.25rem;    /* 20px - h3 / destaques */
+  --font-size-lg: 1.75rem;    /* 28px - h2 */
+  --font-size-xl: 2.5rem;     /* 40px - h1 */
+
+  /* Escala de espaçamento modular (base 8px) */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+
+  /* Raio de borda padrão */
+  --radius-base: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  color: var(--color-neutral-900);
+  line-height: 1.6;
+  background-color: var(--color-neutral-100);
+}
+
+header {
+  background-color: var(--color-primary);
+  padding: var(--space-md) var(--space-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-lg);
+}
+
+header nav a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* ===========================================
+   MENU DE NAVEGAÇÃO: dropdown (desktop) + hambúrguer (mobile)
+   Técnica sem JavaScript: checkbox oculto controla o estado via :checked
+   =========================================== */
+
+/* Checkbox de controle fica sempre invisível */
+.menu-toggle {
+  display: none;
+}
+
+/* Botão hambúrguer: oculto por padrão (só aparece no mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Dropdown: submenu de "Projetos" (visível ao passar o mouse ou focar via teclado) */
+.has-dropdown {
+  position: relative;
+}
+
+.dropdown {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: var(--color-primary-dark);
+  border-radius: 0 0 6px 6px;
+  padding: var(--space-sm) 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.dropdown li {
+  list-style: none;
+}
+
+.dropdown a {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+}
+
+/* :hover e :focus-within garantem acesso tanto por mouse quanto por teclado (Tab) */
+.has-dropdown:hover .dropdown,
+.has-dropdown:focus-within .dropdown {
+  display: flex;
+}
+
+/* ---- Comportamento em telas pequenas (menu hambúrguer) ---- */
+@media (max-width: 767px) {
+  .hamburger {
+    display: flex;
+  }
+
+  header nav {
+    flex-basis: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  /* Quando o checkbox é marcado (clique no hambúrguer), o menu expande */
+  .menu-toggle:checked ~ nav {
+    max-height: 400px;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding-top: var(--space-sm);
+  }
+
+  header nav ul > li {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  header nav a {
+    display: block;
+    padding: var(--space-sm) 0;
+  }
+
+  /* No mobile, o dropdown fica embutido no fluxo (sem posição absoluta) */
+  .dropdown {
+    position: static;
+    box-shadow: none;
+    padding-left: var(--space-md);
+  }
+
+  .has-dropdown:hover .dropdown,
+  .has-dropdown:focus-within .dropdown {
+    display: flex;
+  }
+
+  /* Anima o ícone do hambúrguer para um "X" quando o menu está aberto */
+  .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+section {
+  margin-bottom: 2.5rem;
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-secondary);
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* ===========================================
+   SISTEMA DE GRID - 12 colunas
+   =========================================== */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-lg);
+}
+
+/* Em telas pequenas (mobile), cada card ocupa as 12 colunas (empilhado) */
+.grid-12 > article {
+  grid-column: span 12;
+}
+
+article {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-base);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+aside {
+  background-color: #eaf2fb;
+  border-left: 4px solid var(--color-primary-light);
+  padding: var(--space-md);
+  border-radius: 6px;
+}
+
+fieldset {
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-base);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+legend {
+  font-weight: bold;
+  color: var(--color-primary);
+  padding: 0 var(--space-sm);
+}
+
+label {
+  display: block;
+  margin-top: var(--space-sm);
+  font-weight: bold;
+  font-size: var(--font-size-sm);
+}
+
+input, select {
+  width: 100%;
+  padding: var(--space-sm);
+  margin-top: var(--space-xs);
+  border: 2px solid var(--color-neutral-300);
+  border-radius: 4px;
+  font-size: var(--font-size-base);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* :focus - campo atualmente selecionado pelo usuário */
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.25);
+}
+
+/* :valid - só aplica o verde depois que o usuário já digitou algo
+   (:not(:placeholder-shown) evita marcar campo vazio como "válido" por engano) */
+input:not(:placeholder-shown):valid {
+  border-color: var(--color-success);
+  background-color: #f1f8f1;
+}
+
+/* :invalid - só aplica o vermelho depois que o usuário já digitou algo */
+input:not(:placeholder-shown):invalid {
+  border-color: #c62828;
+  background-color: #fdf1f1;
+}
+
+/* input[type="date"] não suporta :placeholder-shown, então a regra genérica
+   acima o marcaria como erro mesmo antes da interação do usuário.
+   Neutralizamos esse caso específico até que o campo seja focado. */
+input[type="date"]:invalid {
+  border-color: var(--color-neutral-300);
+  background-color: var(--color-white);
+}
+
+input[type="date"]:focus:invalid {
+  border-color: var(--color-primary-light);
+}
+
+
+input[type="radio"] {
+  width: auto;
+  margin-right: 0.3rem;
+}
+
+/* Contêiner flexível: alinha as opções de radio lado a lado */
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-top: var(--space-sm);
+}
+
+/* Contêiner flexível: alinha o input radio com seu label na horizontal */
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.radio-option label {
+  display: inline;
+  margin-top: 0;
+  font-weight: normal;
+}
+
+/* Contêiner flexível: centraliza o botão de envio do formulário */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  margin-top: var(--space-lg);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: 2px solid transparent;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+/* :hover - passar o mouse sobre o botão */
+button:hover {
+  background-color: var(--color-secondary-dark);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+/* :focus - botão selecionado via teclado (Tab) */
+button:focus {
+  outline: none;
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.4);
+}
+
+/* :active - momento exato do clique */
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-secondary-dark);
+}
+
+/* :disabled - botão indisponível (ex: durante envio do formulário) */
+button:disabled {
+  background-color: var(--color-neutral-300);
+  color: var(--color-neutral-600);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+footer {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+/* Contêiner flexível: distribui os dados de contato do rodapé */
+/* ===========================================
+   BADGES - etiquetas de categorização semântica
+   =========================================== */
+.badge {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: bold;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 999px;
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.badge-urgente {
+  background-color: #fdecea;
+  color: #c62828;
+}
+
+.badge-ativa {
+  background-color: #e8f5e9;
+  color: var(--color-success);
+}
+
+/* ===========================================
+   ALERT BOXES - feedback contextual ao usuário
+   =========================================== */
+.alert {
+  padding: var(--space-md);
+  border-radius: var(--radius-base);
+  margin-bottom: var(--space-md);
+  border-left: 4px solid;
+  font-size: var(--font-size-sm);
+}
+
+.alert-info {
+  background-color: #eaf2fb;
+  border-left-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+.alert-success {
+  background-color: #e8f5e9;
+  border-left-color: var(--color-success);
+  color: #1b5e20;
+}
+
+.alert-error {
+  background-color: #fdecea;
+  border-left-color: #c62828;
+  color: #8e1e1e;
+}
+
+/* ===========================================
+   MODAL - janela de detalhes (técnica checkbox hack, sem JS)
+   =========================================== */
+.btn-modal {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-modal:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.modal-toggle {
+  display: none;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  z-index: 100;
+}
+
+/* Quando o checkbox correspondente é marcado, o overlay aparece.
+   Usa o combinador de irmão adjacente (+), não o geral (~), para que
+   marcar um checkbox não acione modais de outros cards que vêm depois
+   dele no documento. */
+.modal-toggle:checked + .modal-overlay {
+  display: flex;
+}
+
+.modal-box {
+  position: relative;
+  background-color: var(--color-white);
+  border-radius: var(--radius-base);
+  padding: var(--space-xl);
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  font-size: var(--font-size-lg);
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-neutral-600);
+}
+
+.modal-close:hover {
+  color: var(--color-neutral-900);
+}
+
+.btn-fechar {
+  display: inline-block;
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-fechar:hover {
+  background-color: var(--color-secondary-dark);
+}
+
+footer address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+@media (min-width: 768px) {
+  footer address {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-xl);
+  }
+}
+
+/* ===========================================
+   BREAKPOINTS RESPONSIVOS (mobile-first, 5 pontos de quebra)
+   =========================================== */
+
+/* 1. Mobile pequeno (até 480px) - estilo base já aplicado acima */
+
+/* 2. Mobile grande / phablet (a partir de 481px) */
+@media (min-width: 481px) {
+  main {
+    padding: var(--space-xl) var(--space-md);
+  }
+}
+
+/* 3. Tablet retrato (a partir de 768px) */
+@media (min-width: 768px) {
+  header {
+    padding: var(--space-md) var(--space-2xl);
+  }
+
+  .grid-12 > article {
+    grid-column: span 6; /* 2 cards por linha */
+  }
+}
+
+/* 4. Tablet paisagem / notebook pequeno (a partir de 1024px) */
+@media (min-width: 1024px) {
+  main {
+    max-width: 1024px;
+  }
+
+  .grid-12 > article {
+    grid-column: span 4; /* 3 cards por linha */
+  }
+}
+
+/* 5. Desktop grande / panorâmico (a partir de 1440px) */
+@media (min-width: 1440px) {
+  main {
+    max-width: 1280px;
+  }
+
+  :root {
+    --font-size-xl: 3rem; /* títulos maiores em telas grandes */
+  }
+}

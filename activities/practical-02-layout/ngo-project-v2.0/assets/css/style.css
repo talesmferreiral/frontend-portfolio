@@ -1,0 +1,295 @@
+/* ===========================================
+   DESIGN SYSTEM - Variáveis customizadas (CSS Custom Properties)
+   =========================================== */
+:root {
+  /* Cores primárias */
+  --color-primary: #0d3b66;
+  --color-primary-dark: #082747;
+  --color-primary-light: #4a90d9;
+
+  /* Cores secundárias (ação / destaque) */
+  --color-secondary: #f4a300;
+  --color-secondary-dark: #d98e00;
+
+  /* Cor de feedback */
+  --color-success: #2e7d32;
+
+  /* Tons neutros */
+  --color-neutral-900: #1a1a1a;
+  --color-neutral-600: #555555;
+  --color-neutral-300: #cccccc;
+  --color-neutral-100: #f7f9fb;
+  --color-white: #ffffff;
+
+  /* Escala tipográfica (5 patamares) */
+  --font-family-base: Arial, Helvetica, sans-serif;
+  --font-size-sm: 0.875rem;   /* 14px - textos auxiliares */
+  --font-size-base: 1rem;     /* 16px - corpo de texto */
+  --font-size-md: 1.25rem;    /* 20px - h3 / destaques */
+  --font-size-lg: 1.75rem;    /* 28px - h2 */
+  --font-size-xl: 2.5rem;     /* 40px - h1 */
+
+  /* Escala de espaçamento modular (base 8px) */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+
+  /* Raio de borda padrão */
+  --radius-base: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  color: var(--color-neutral-900);
+  line-height: 1.6;
+  background-color: var(--color-neutral-100);
+}
+
+header {
+  background-color: var(--color-primary);
+  padding: var(--space-md) var(--space-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-lg);
+}
+
+header nav a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+section {
+  margin-bottom: 2.5rem;
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-secondary);
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* ===========================================
+   SISTEMA DE GRID - 12 colunas
+   =========================================== */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-lg);
+}
+
+/* Em telas pequenas (mobile), cada card ocupa as 12 colunas (empilhado) */
+.grid-12 > article {
+  grid-column: span 12;
+}
+
+article {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-base);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+aside {
+  background-color: #eaf2fb;
+  border-left: 4px solid var(--color-primary-light);
+  padding: var(--space-md);
+  border-radius: 6px;
+}
+
+fieldset {
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-base);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+legend {
+  font-weight: bold;
+  color: var(--color-primary);
+  padding: 0 var(--space-sm);
+}
+
+label {
+  display: block;
+  margin-top: var(--space-sm);
+  font-weight: bold;
+  font-size: var(--font-size-sm);
+}
+
+input, select {
+  width: 100%;
+  padding: var(--space-sm);
+  margin-top: var(--space-xs);
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: var(--font-size-base);
+}
+
+input[type="radio"] {
+  width: auto;
+  margin-right: 0.3rem;
+}
+
+/* Contêiner flexível: alinha as opções de radio lado a lado */
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-top: var(--space-sm);
+}
+
+/* Contêiner flexível: alinha o input radio com seu label na horizontal */
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.radio-option label {
+  display: inline;
+  margin-top: 0;
+  font-weight: normal;
+}
+
+/* Contêiner flexível: centraliza o botão de envio do formulário */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  margin-top: var(--space-lg);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color-secondary-dark);
+}
+
+footer {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+/* Contêiner flexível: distribui os dados de contato do rodapé */
+footer address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+@media (min-width: 768px) {
+  footer address {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-xl);
+  }
+}
+
+/* ===========================================
+   BREAKPOINTS RESPONSIVOS (mobile-first, 5 pontos de quebra)
+   =========================================== */
+
+/* 1. Mobile pequeno (até 480px) - estilo base já aplicado acima */
+
+/* 2. Mobile grande / phablet (a partir de 481px) */
+@media (min-width: 481px) {
+  main {
+    padding: var(--space-xl) var(--space-md);
+  }
+}
+
+/* 3. Tablet retrato (a partir de 768px) */
+@media (min-width: 768px) {
+  header {
+    padding: var(--space-md) var(--space-2xl);
+  }
+
+  .grid-12 > article {
+    grid-column: span 6; /* 2 cards por linha */
+  }
+}
+
+/* 4. Tablet paisagem / notebook pequeno (a partir de 1024px) */
+@media (min-width: 1024px) {
+  main {
+    max-width: 1024px;
+  }
+
+  .grid-12 > article {
+    grid-column: span 4; /* 3 cards por linha */
+  }
+}
+
+/* 5. Desktop grande / panorâmico (a partir de 1440px) */
+@media (min-width: 1440px) {
+  main {
+    max-width: 1280px;
+  }
+
+  :root {
+    --font-size-xl: 3rem; /* títulos maiores em telas grandes */
+  }
+}
