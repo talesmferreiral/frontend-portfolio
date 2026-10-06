@@ -55,7 +55,7 @@ See `docs/gitflow.md` for the step-by-step.
 
 ## License
 
-Educational use — Unifran. MIT for SPA code reuse.
+Educational use — Unifran. for SPA code reuse.
 
 ---
 
@@ -116,4 +116,4 @@ Veja `docs/gitflow.md` para o passo a passo.
 
 ## Licença
 
-Uso educacional — Unifran. MIT para reaproveitamento do código da SPA.
+Uso educacional — Unifran. para reaproveitamento do código da SPA.
